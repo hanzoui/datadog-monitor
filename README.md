@@ -1,6 +1,6 @@
-# ComfyUI Datadog Monitor
+# Hanzo Studio Datadog Monitor
 
-Background extension that automatically enables comprehensive Datadog APM tracing and profiling for ComfyUI. No UI nodes - runs entirely in the background.
+Background extension that automatically enables comprehensive Datadog APM tracing and profiling for Hanzo Studio. No UI nodes - runs entirely in the background.
 
 ## Features
 
@@ -24,27 +24,27 @@ When this node is installed, Datadog automatically traces:
 
 ## Installation
 
-1. Install in your ComfyUI custom_nodes directory:
+1. Install in your Hanzo Studio custom_nodes directory:
 ```bash
 cd custom_nodes
-git clone https://github.com/Comfy-Org/comfyui-datadog-monitor
-cd comfyui-datadog-monitor
+git clone https://github.com/hanzoui/datadog-monitor
+cd hanzo-studio-datadog-monitor
 pip install -r requirements.txt
 ```
 
 2. Set environment variables:
 ```bash
 export DD_ENV=production
-export DD_SERVICE=comfyui-inference
+export DD_SERVICE=hanzo-studio-inference
 export DD_VERSION=1.0.0
 export DD_AGENT_HOST=localhost  # Your Datadog agent host
 ```
 
-3. Restart ComfyUI - profiling starts automatically
+3. Restart Hanzo Studio - profiling starts automatically
 
 ## How It Works
 
-This extension uses `ddtrace.auto` which must be imported before any other imports. When ComfyUI loads this extension, it:
+This extension uses `ddtrace.auto` which must be imported before any other imports. When Hanzo Studio loads this extension, it:
 1. Imports `ddtrace.auto` to enable full instrumentation
 2. Configures service tags for proper APM organization
 3. Starts continuous profiling in the background
@@ -63,7 +63,7 @@ While the DDTrace profiler handles detailed memory profiling, the Go sidecar han
 ## Environment Variables
 
 - `DD_ENV`: Environment name (default: production)
-- `DD_SERVICE`: Service name (default: comfyui-inference)
+- `DD_SERVICE`: Service name (default: hanzo-studio-inference)
 - `DD_VERSION`: Service version (default: 1.0.0)
 - `DD_PROFILING_ENABLED`: Enable profiling (default: true via ddtrace.auto)
 - `DD_LOGS_INJECTION`: Inject trace IDs into logs (default: true)
@@ -88,7 +88,7 @@ When debugging OOM issues, look for:
 The Go sidecar will:
 - Enforce memory limits (default 64GB)
 - Detect OOM (exit code 137)
-- Auto-restart ComfyUI
+- Auto-restart Hanzo Studio
 - Mark jobs as failed in database
 
 ## Performance Impact

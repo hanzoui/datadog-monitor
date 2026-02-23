@@ -1,5 +1,5 @@
 """
-ComfyUI PyTorch Memory Tracker
+Hanzo Studio PyTorch Memory Tracker
 Tracks PyTorch CUDA memory allocations for OOM debugging.
 Controlled via PYTORCH_MEMORY_TRACKING environment variable.
 """
@@ -224,7 +224,7 @@ def _configure_ddtrace():
         return False
 
 def monkey_patch_comfyui():
-    """Patch ComfyUI workflow execution to add PyTorch memory tracking"""
+    """Patch Hanzo Studio workflow execution to add PyTorch memory tracking"""
     global _patched
 
     if _patched:
@@ -237,7 +237,7 @@ def monkey_patch_comfyui():
     try:
         import execution
 
-        print("🔧 Instrumenting ComfyUI for PyTorch memory tracking...")
+        print("🔧 Instrumenting Hanzo Studio for PyTorch memory tracking...")
 
         # Patch workflow execution
         if hasattr(execution, 'PromptExecutor'):
@@ -284,12 +284,12 @@ def monkey_patch_comfyui():
                 print("   ✅ Workflow execution instrumented for PyTorch memory tracking")
 
         _patched = True
-        print("🎉 ComfyUI PyTorch memory tracking enabled!")
+        print("🎉 Hanzo Studio PyTorch memory tracking enabled!")
 
     except ImportError as e:
         logger.warning(f"Could not import execution module: {e}")
     except Exception as e:
-        logger.error(f"Failed to instrument ComfyUI: {e}")
+        logger.error(f"Failed to instrument Hanzo Studio: {e}")
 
 # Configure and patch on module import
 if DDTRACE_AVAILABLE:

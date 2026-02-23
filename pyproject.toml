@@ -1,16 +1,16 @@
 [project]
-name = "comfyui-datadog-monitor"
+name = "hanzo-studio-datadog-monitor"
 description = ""
 version = "1.0.4"
 license = {file = "LICENSE"}
 dependencies = ["# Datadog memory profiling", "ddtrace>=2.0.0", "# System monitoring", "psutil>=5.9.0"]
 
 [project.urls]
-Repository = "https://github.com/Comfy-Org/comfyui-datadog-monitor"
-#  Used by Comfy Registry https://registry.comfy.org
+Repository = "https://github.com/hanzoui/datadog-monitor"
+#  Used by Comfy Registry https://registry.hanzo.ai
 
 [tool.comfy]
 PublisherId = "ric-yu"
-DisplayName = "comfyui-datadog-monitor"
+DisplayName = "hanzo-studio-datadog-monitor"
 Icon = ""
 includes = []
